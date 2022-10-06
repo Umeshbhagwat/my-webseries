@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react';
+import "./index.css";
+import WebseriesData from './WebseriesData';
+import Webseris from './Webseris';
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Top WebSeries</h1>
+      <div className='container'>
+
+        {WebseriesData.map((values)=>{
+          return(
+        <>
+          <Webseris
+            title={values.title}
+            imgsrc={values.imgsrc}
+            description={values.description}
+            link={values.link}
+          />
+        </>
+        );
+        })}
+      </div>
+    </>
   );
 }
 
